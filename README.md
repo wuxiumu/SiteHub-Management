@@ -17,6 +17,8 @@ SiteHub-Management/
 └── tracker-go/README.md   # Go 采集规划占位
 ```
 
+详见 `docs/ROADMAP.md`、`docs/CHECKLIST-M0.md`。
+
 ## 规划中的能力（待实现 / 可定制）
 
 - 前端（Vue3）：登录、仪表盘、域名/服务器/站点管理、流量图表
