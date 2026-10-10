@@ -1,255 +1,28 @@
-# SiteHub-Management · 多站点监控管理
+# SiteHub-Management · 多站点监控管理（骨架）
 
-> 给站长/运维的**多域名与站点统一监控管理**方案（Vue3 + PHP + Go 采集方向）。
+> 给站长/运维的**多域名与站点统一监控管理**方案方向（Vue3 + PHP + Go 采集）。
 
 **定制：** 微信 **qingbao199101**（备注：站点监控）｜ [wuxiumu@163.com](mailto:wuxiumu@163.com)
 
-多站点统一监控与管理平台是一个专为站长、运维人员和流量分析人员设计的综合管理系统，旨在帮助用户高效管理多个域名、服务器和站点，实时监控运行状态，分析流量数据，并提供直观的可视化管理界面。
+> ⚠️ **当前状态：设计骨架，非子模块完整实现。**  
+> 仓库内 `frontend/`、`backend-php/`、`tracker-go/` **各自仅有 README 占位**，尚未落地可运行源码。适合作为选题 / 定制立项蓝图，勿按「开箱可跑监控平台」预期。
 
-整个项目的**工程目录设计** + **功能模块列表**，覆盖：
-
-
-
-- ✅ 前端（Vue3）
-- ✅ 后端（PHP 7.4）
-- ✅ 数据采集服务（Go）
-- ✅ 文档（接口 + 结构说明）
-- ✅ 测试（Mock + 数据验证）
-
-
-
-
-
-------
-
-
-
-
-
-## **🧱 一、顶层目录结构（统一工程）**
-
-
+## 仓库现状
 
 ```
-site-admin/                     # 项目根目录
-├── frontend/                   # Vue3 管理后台前端
-├── backend-php/                # PHP 后端服务（接口管理）
-├── tracker-go/                 # Go 埋点/统计采集服务
-├── docs/                       # 项目文档（接口文档、数据库设计）
-├── tests/                      # 测试脚本（接口测试、mock数据）
-└── README.md                   # 项目说明
-
-
+SiteHub-Management/
+├── README.md              # 本说明 + 商业化信息
+├── frontend/README.md     # 前端规划占位
+├── backend-php/README.md  # 后端规划占位
+└── tracker-go/README.md   # Go 采集规划占位
 ```
 
-
-
-------
-
-
-
-
-
-## **🖼️ 二、前端（frontend/）结构（Vue3 + Vite）**
-
-
-
-```
-frontend/
-├── public/
-├── src/
-│   ├── assets/                # 静态资源
-│   ├── components/            # 公共组件（Header、Sidebar 等）
-│   ├── views/                 # 页面视图（Dashboard、Domains、Servers）
-│   ├── api/                   # 接口封装 axios
-│   ├── router/                # Vue Router 配置
-│   ├── store/                 # Pinia 状态管理
-│   ├── utils/                 # 工具方法
-│   └── App.vue / main.ts      # 入口文件
-└── vite.config.ts
-```
-
-
-
-### **功能列表（前端实现）**
-
-
-
-
-
-- 用户登录（JWT）
-- 首页仪表盘（流量总览）
-- 域名管理页（增删改查）
-- 服务器管理页（增删改查）
-- 站点管理页（增删改查）
-- 流量统计图表（按站点/IP/UA 显示）
-- 响应式适配（移动端简洁模式）
-
-
-
-
-
-------
-
-
-
-
-
-## **🧩 三、后端（backend-php/）结构（PHP 7.4，无框架）**
-
-
-
-```
-backend-php/
-├── public/                  # Web根目录
-│   └── index.php
-├── app/
-│   ├── Controllers/         # 控制器类
-│   ├── Models/              # 数据库模型
-│   ├── Services/            # 业务逻辑
-│   ├── Utils/               # 工具类（JWT、验证）
-│   └── Routes.php
-├── config/
-│   └── database.php
-├── .env
-├── composer.json
-└── vendor/
-```
-
-
-
-### **功能列表（后端接口）**
-
-
-
-
-
-- 登录验证接口（JWT 生成与校验）
-- 域名管理：增删改查
-- 服务器管理：增删改查
-- 站点管理：增删改查
-- 流量查询：支持按时间/IP/站点聚合
-- 日志记录与错误处理
-
-
-
-
-
-------
-
-
-
-
-
-## **⚙️ 四、Go 流量采集服务（tracker-go/）**
-
-
-
-```
-tracker-go/
-├── main.go
-├── handler/
-│   └── track.go            # POST /track 流量埋点接收
-├── model/
-│   └── traffic.go
-├── service/
-│   └── redis.go / mysql.go
-├── utils/
-│   └── ip.go / ua.go
-└── go.mod
-```
-
-
-
-### **功能列表（Go 服务）**
-
-
-
-
-
-- 接收埋点流量数据（IP、UA、Referer）
-- 写入 Redis 缓存
-- 异步写入 MySQL
-- IP 地理位置解析
-- 简易防刷处理（限频）
-
-
-
-
-
-------
-
-
-
-
-
-## **📚 五、文档目录（docs/）**
-
-
-
-```
-docs/
-├── api-doc.md               # 接口说明文档
-├── database-schema.sql      # 建表语句
-├── architecture.png         # 系统架构图
-├── frontend-routing.md      # 前端路由说明
-└── dev-guide.md             # 本地开发说明
-```
-
-
-
-### **内容说明**
-
-
-
-
-
-- 系统结构图（前后端分离 + 数据流）
-- 接口规范（请求参数、返回示例）
-- 表结构注释说明
-- 用户角色说明（暂支持管理员）
-
-
-
-
-
-------
-
-
-
-
-
-## **🧪 六、测试目录（tests/）**
-
-
-
-```
-tests/
-├── postman_collection.json     # 接口测试集（可导入 Postman）
-├── mock/
-│   └── traffic_sample.json     # 埋点数据样本
-├── traffic-benchmark.php       # PHP 模拟请求
-└── loadtest.go                 # Go 并发压力测试脚本
-```
-
-
-
-### **测试目标**
-
-
-
-
-
-- 登录认证接口
-- CRUD 操作接口
-- 埋点服务压力测试
-- 统计准确性验证（定期核对）
-
-
-
-
-
-------
+## 规划中的能力（待实现 / 可定制）
+
+- 前端（Vue3）：登录、仪表盘、域名/服务器/站点管理、流量图表
+- 后端（PHP）：JWT、CRUD API、配置
+- 采集（Go）：埋点 / 统计采集服务
+- 文档与 Mock 测试
 
 ## SEO 字段预留（产品页 HTML 统一生成时用）
 
@@ -272,30 +45,30 @@ tests/
 
 ### 关键词（中英）
 
-- 中文：多站点监控, 站群管理, 流量分析后台, 域名运维, 站点看板
-- English: multi-site monitoring, site hub, webmaster dashboard, traffic ops
+- 中文：多站点监控, 站群管理, 流量采集, SiteHub
+- English: multi-site monitoring, site fleet admin, traffic tracker
 
 ### 事实摘要
 
-- 产品：多站点统一监控与管理平台设计/实现。
-- 适合：站长、运维、站群经营者。
-- 交付：监控项、看板、告警定制。
-- 不做：开箱替代所有云厂商监控（按你的栈裁剪）。
+- 产品：多站点统一监控与管理平台的**目录与模块蓝图**（实现度：骨架）。
+- 适合：需要按该架构定制落地的站长 / 运维团队。
+- 交付：按模块实现前端、PHP API、Go 采集与告警。
+- 不做：当前仓库不能开箱替代云厂商监控；子目录尚无业务代码。
 
 ### FAQ
 
-**Q：这是什么？**  
-A：见事实摘要「产品」。
+**Q：clone 下来能直接跑吗？**  
+A：不能。子模块目前只有 README 占位，需定制开发或等待实现。
 
 **Q：如何定制？**  
-A：微信 `qingbao199101`，备注项目名。
+A：微信 `qingbao199101`，备注「站点监控」。
 
 **Q：是否含密钥？**  
-A：默认不含，自行配置。
+A：默认不含。
 
 ## 定制合作
 
-监控指标、告警通道、权限。加微信备注「站点监控」。
+监控指标、告警通道、权限与首期 MVP 范围。加微信备注「站点监控」。
 
 ---
 
@@ -313,4 +86,3 @@ A：默认不含，自行配置。
 | 微信赞赏码 | 支付宝收款码 |
 |---|---|
 | ![微信赞赏码](https://chiguashentan-test.oss-cn-beijing.aliyuncs.com/wxprogram/zan/20261002185236_31_227.png) | ![支付宝收款码](https://chiguashentan-test.oss-cn-beijing.aliyuncs.com/wxprogram/zan/20261002185309_32_227.jpg) |
-
