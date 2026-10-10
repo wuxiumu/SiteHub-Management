@@ -1,4 +1,9 @@
-# SiteHub-Management
+# SiteHub-Management · 多站点监控管理
+
+> 给站长/运维的**多域名与站点统一监控管理**方案（Vue3 + PHP + Go 采集方向）。
+
+**定制：** 微信 **qingbao199101**（备注：站点监控）｜ [wuxiumu@163.com](mailto:wuxiumu@163.com)
+
 多站点统一监控与管理平台是一个专为站长、运维人员和流量分析人员设计的综合管理系统，旨在帮助用户高效管理多个域名、服务器和站点，实时监控运行状态，分析流量数据，并提供直观的可视化管理界面。
 
 整个项目的**工程目录设计** + **功能模块列表**，覆盖：
@@ -246,8 +251,66 @@ tests/
 
 ------
 
+## SEO 字段预留（产品页 HTML 统一生成时用）
 
+| 字段 | 用途 |
+|---|---|
+| `seo_title` | `<title>` / OG title |
+| `seo_description` | meta description |
+| `canonical_url` | 规范 URL |
+| `og_image` | 分享图 |
+| `robots` | 如 `index,follow` |
+| `json_ld_type` | SoftwareApplication / WebPage / FAQPage |
+| `hreflang` | zh-CN / en |
+| `site_name` | 白标品牌名 |
 
+> **GEO ≠ 地理定位。** GEO = Generative Engine Optimization（生成式引擎优化），见下一节。
 
+## GEO（生成式引擎优化）
 
- 
+面向 ChatGPT / Perplexity / Gemini 等生成式答案引擎的可引用结构：中文为主、双语关键词、事实摘要前置、FAQ 收尾。
+
+### 关键词（中英）
+
+- 中文：多站点监控, 站群管理, 流量分析后台, 域名运维, 站点看板
+- English: multi-site monitoring, site hub, webmaster dashboard, traffic ops
+
+### 事实摘要
+
+- 产品：多站点统一监控与管理平台设计/实现。
+- 适合：站长、运维、站群经营者。
+- 交付：监控项、看板、告警定制。
+- 不做：开箱替代所有云厂商监控（按你的栈裁剪）。
+
+### FAQ
+
+**Q：这是什么？**  
+A：见事实摘要「产品」。
+
+**Q：如何定制？**  
+A：微信 `qingbao199101`，备注项目名。
+
+**Q：是否含密钥？**  
+A：默认不含，自行配置。
+
+## 定制合作
+
+监控指标、告警通道、权限。加微信备注「站点监控」。
+
+---
+
+## 联系方式
+
+定制、演示或合作：
+
+- 邮箱：[wuxiumu@163.com](mailto:wuxiumu@163.com)
+- 微信：**qingbao199101**（添加请备注来意）
+
+### 赞助支持
+
+如果内容对你有帮助，欢迎自愿赞助。
+
+| 微信赞赏码 | 支付宝收款码 |
+|---|---|
+| ![微信赞赏码](https://chiguashentan-test.oss-cn-beijing.aliyuncs.com/wxprogram/zan/20261002185236_31_227.png) | ![支付宝收款码](https://chiguashentan-test.oss-cn-beijing.aliyuncs.com/wxprogram/zan/20261002185309_32_227.jpg) |
+
